@@ -58,8 +58,6 @@ git log --oneline --all -- HORARIO.PAS
 - Versiones intermedias entre BETA96 (feb) y HORA11 (abr).
 - Cualquier código posterior a abril 1996 — el proyecto se discontinuó tras
   la v1.1.
-- Cualquier código posterior a abril 1996 — el proyecto se discontinuó tras
-  la v1.1.
 
 ## Archivos `*.HOR` y `*.DAT`
 
