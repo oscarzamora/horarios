@@ -107,49 +107,90 @@ Hoy el mismo cálculo correría en milisegundos en cualquier laptop, pero la
 de colisión, early-exit, streaming. Es básicamente lo que un solver moderno
 haría con las mismas restricciones de memoria embebida.
 
-## El mouse: cazado en la versión final
+## El mouse: integrado en la versión final
 
-Durante mucho tiempo creí recordar que la última versión del programa	enía soporte completo de mouse. Cuando revisamos el código fuente
-preservado en [src/](src/) (HORA11, 16-abr-1996), nada cuadraba:
+En febrero de 1996 (BETA96) agregué al proyecto la unidad
+[src/MOUSE.PAS](src/MOUSE.PAS): un driver completo que habla con el ratón
+vía **INT 33h** del BIOS, con 10 cursores gráficos personalizados
+(flecha, reloj de arena, mano apuntando, check, etc.). El objetivo era
+claro: la siguiente versión del programa iba a soportar mouse — click
+sobre la grilla 15×6 para marcar horas, click directo sobre los ítems
+de las listas, botones presionables con el cursor.
+
+Durante mucho tiempo creí que esa integración había quedado incompleta.
+El código fuente preservado en [src/](src/) (HORA11, 16-abr-1996) lo
+respaldaba:
 
 - `HORA.PAS` declara `uses crt, graph, uhora, uhora2;` — sin `mouse`.
 - 11 `readkey` y 47 códigos de tecla literales — todo por teclado.
-- El manual de HORA11 no menciona el ratón en ningún tópico.
+- El manual de HORA11 (21 tópicos) no menciona el ratón.
+- La unidad `MOUSE.PAS` estaba presente desde feb-1996 pero **sin enlazar**.
 
-La unidad [src/MOUSE.PAS](src/MOUSE.PAS) (driver INT 33h del BIOS con 10
-cursores gráficos) estaba presente desde feb-1996, pero **sin enlazar**.
-
-Resulta que **sí terminé de integrarla**. La evidencia apareció en un
-backup de OneDrive bajo `_Archived_/DOS Applications/Horarios/`: el
+**Pero sí terminé de integrarla.** La evidencia apareció en un backup
+de OneDrive bajo `_Archived_/DOS Applications/Horarios/`: el
 **ejecutable compilado del 1 de junio de 1996** — 6 semanas posterior
-al source preservado — con:
+al source preservado — junto con su manual de ayuda actualizado. La
+evidencia decisiva está en el manual:
 
-- ✅ Opcode `INT 33h` (`CD 33`) presente en bytecode
-- ✅ Tópico "Usando el Mouse" en el manual `GDH.HLP` actualizado
-- ✅ 7 menciones de "mouse", 14 de "click", 8 de "botón" en el manual
-- ✅ Menú renombrado: "Adicionar Curso" → "Adicionar Sección" (más correcto)
-- ✅ 24 tópicos de ayuda vs 21 del HORA11 anterior
+- ✅ **Nuevo tópico** *"Usando el Mouse"* abriendo la ayuda y declarando
+  textualmente: *"Esta versión soporta mouse, y se pueden desarrollar
+  todas las tareas usando el mouse"*.
+- ✅ **21 menciones** de `mouse`, `click` o `botón` describiendo flujos
+  específicos:
+  - *"click en un botón deseado del menú"* (menú principal),
+  - *"click en el ítem deseado, y luego en el botón OK"* (`selectitem`),
+  - *"click en las flechas de la ventana"* (scrollbar de `selectitem`),
+  - *"click en el recuadro deseado"* / *"click en el bloque deseado para
+    marcar o desmarcar la hora"* (grilla 15×6 de `tabla`),
+  - *"click en el botón Cancel"* (diálogos).
+- ✅ Manual ampliado: **24 tópicos** vs. 21 del HORA11 anterior.
+- ✅ Menú renombrado: *"Adicionar Curso" → "Adicionar Sección"* (más correcto).
+- ⚠ **Lo que NO es evidencia válida**: una búsqueda ingenua del opcode
+  `CD 33` (INT 33h) en el `.EXE` arroja una sola coincidencia, en bytes
+  que claramente son datos comprimidos del runtime de Turbo Pascal
+  (no instrucción). Las llamadas INT 33h reales están dentro del
+  segmento de código de la unit `MOUSE.TPU` enlazada, empaquetada por
+  el compilador, y no son directamente detectables por *byte search*.
 
 **El código fuente de esa versión final nunca se conservó.** Solo
-sobrevivió el EXE compilado. Ahora está en
+sobrevivió el EXE compilado, en
 [release/1996-06-FINAL/](release/1996-06-FINAL/) junto al manual y los
 drivers BGI necesarios para ejecutarlo en DOSBox.
 
-Ver [release/1996-06-FINAL/README.md](release/1996-06-FINAL/README.md)
-para el detalle.
+### Reconstrucción moderna del fuente perdido
+
+Como el fuente real está perdido pero el comportamiento esperado está
+**documentado explícitamente en el manual de junio 1996**, en
+[reconstructed/1996-06-FINAL-with-mouse/](reconstructed/1996-06-FINAL-with-mouse/)
+está una **re-implementación del propio autor (2026)** que integra
+`MOUSE.PAS` exactamente donde el manual dice que el mouse funcionaba:
+menú principal, diálogos `msgbox`, listas `selectitem` (ítems + flechas
++ track), formularios `gettext`, grilla 15×6 de `tabla` y visor
+`impcuadres`.
+
+No es decompilación del EXE: es una reconstrucción por fuente perdido
+sobre HORA11 (v1.1), con la misma API, el mismo estilo del autor y
+click adicional al teclado. Cubre punto a punto la especificación del
+manual. Detalle completo, supuestos y falsabilidad en
+[reconstructed/1996-06-FINAL-with-mouse/RECONSTRUCTION-NOTES.md](reconstructed/1996-06-FINAL-with-mouse/RECONSTRUCTION-NOTES.md).
+
+Ver también [docs/codigo/MOUSE.PAS.md](docs/codigo/MOUSE.PAS.md) para
+el detalle de la unidad MOUSE.
 
 ---
 
 ## ¿Qué hay aquí?
 
-Este repositorio preserva **cuatro snapshots** del proyecto a lo largo de su
-evolución, más documentación moderna para entenderlo sin necesidad de
-ejecutarlo en DOS.
+Este repositorio preserva **cuatro snapshots reales** del proyecto a lo
+largo de su evolución, más **una reconstrucción moderna** del fuente
+perdido de junio 1996, más documentación para entenderlo sin necesidad
+de ejecutarlo en DOS.
 
-| Carpeta | Contenido | Propósito |
+| Carpeta | Contenido | Estatus |
 |---|---|---|
-| [release/1996-06-FINAL/](release/1996-06-FINAL/) | **EXE final** v1.1 con mouse (jun 1996) | Última versión distribuida — fuente perdida |
-| [src/](src/) | Versión **HORA11** (abril 1996, v1.1 pre-final) | Último source preservado, sin mouse integrado |
+| [release/1996-06-FINAL/](release/1996-06-FINAL/) | **EXE final** con mouse (1 jun 1996) | Binario real — fuente perdida |
+| [reconstructed/1996-06-FINAL-with-mouse/](reconstructed/1996-06-FINAL-with-mouse/) | **Reconstrucción** del fuente con mouse | Re-implementación del autor (2026) según el manual |
+| [src/](src/) | Versión **HORA11** (16 abr 1996, v1.1 pre-final) | Último source preservado, sin mouse integrado |
 | [history/1995-08-HORABETA/](history/1995-08-HORABETA/) | v1.0 Beta — agosto 1995 | Primera versión conservada |
 | [history/1995-09-HORA10/](history/1995-09-HORA10/) | v1.0 estable — septiembre 1995 | Incluye `CAMBIOS.TXT` original |
 | [history/1996-02-BETA96/](history/1996-02-BETA96/) | Beta 96 — febrero 1996 | Introduce `HORA.PAS` y `MOUSE.PAS` |
@@ -170,12 +211,14 @@ ejecutarlo en DOS.
 ```
 horarios/
 ├── release/
-│   └── 1996-06-FINAL/               ⭐ EXE final con mouse (1 jun 1996) — fuente perdida
-├── src/                            ★ HORA11 — último source preservado (16 abr 1996)
+│   └── 1996-06-FINAL/                ⭐ EXE final con mouse (1 jun 1996) — fuente perdida
+├── reconstructed/
+│   └── 1996-06-FINAL-with-mouse/     🔧 Re-implementación del fuente perdido (2026)
+├── src/                              ★ HORA11 — último source preservado (16 abr 1996)
 ├── history/
-│   ├── 1995-08-HORABETA/           v1.0 Beta
-│   ├── 1995-09-HORA10/             v1.0 estable
-│   └── 1996-02-BETA96/             Beta 96
+│   ├── 1995-08-HORABETA/             v1.0 Beta
+│   ├── 1995-09-HORA10/               v1.0 estable
+│   └── 1996-02-BETA96/               Beta 96
 ├── docs/
 │   ├── HISTORIA.md
 │   ├── ARQUITECTURA.md
@@ -214,32 +257,12 @@ horarios/
   [sección de eficiencia](#sobre-la-eficiencia-del-algoritmo-corroboración-técnica))
 - **Salidas:** visualización en pantalla + impresión a `LPT1` (horario completo o lista de secciones)
 - **Persistencia:** typed files binarios (`file of <record>`), formato propietario
-- **Entrada:** 100% por teclado (flechas, Tab, Enter, Esc, F1, F5)
+- **Entrada:** teclado completo (flechas, Tab, Enter, Esc, F1, F5) en el código preservado;
+  el binario FINAL agregó mouse según el manual de junio 1996
+  (reconstrucción en
+  [reconstructed/1996-06-FINAL-with-mouse/](reconstructed/1996-06-FINAL-with-mouse/))
 
 Ver [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) para el detalle completo.
-
-## El mouse que no llegué a integrar
-
-En febrero de 1996 (BETA96) agregué al proyecto la unidad
-[src/MOUSE.PAS](src/MOUSE.PAS): un driver completo que habla con el ratón
-vía **INT 33h** del BIOS, con 10 cursores gráficos personalizados
-(flecha, reloj de arena, mano apuntando, check, etc.). El objetivo era
-claro: la siguiente versión del programa iba a soportar mouse — click
-sobre la grilla 15×6 para marcar horas, drag para mover secciones,
-botones presionables con el cursor.
-
-La unidad nunca se llegó a enlazar. Verificable hoy:
-
-- [src/HORA.PAS](src/HORA.PAS) declara `uses crt, graph, uhora, uhora2;`
-  — sin `mouse`.
-- 11 llamadas a `readkey` y 47 códigos de tecla literales en el código:
-  toda la interacción es por teclado.
-- El manual [src/GDH.HLP](src/GDH.HLP) (21 tópicos) no menciona el ratón
-  en ninguna parte.
-
-Quedó como el roadmap nunca ejecutado de la v1.2 que no existió.
-Ver [docs/codigo/MOUSE.PAS.md](docs/codigo/MOUSE.PAS.md) para el detalle
-de la unidad.
 
 ---
 
