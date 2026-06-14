@@ -7,7 +7,6 @@ encabezados de los archivos `.PAS` y en el `CAMBIOS.TXT` original.
 
 | Fecha | Snapshot | Versión declarada | Hito |
 |---|---|---|---|
-
 | **31-jul-1995** | _(no preservado)_ | — | Aparece `UHORA2.PAS` v1 (utilidades de texto, 1 716 bytes) |
 | **02-ago-1995** | _(no preservado)_ | — | Aparece `UHORA.PAS` v1 (BGI: ventanas, botones, msgbox) |
 | **13-14 ago 1995** | [history/1995-08-HORABETA/](../history/1995-08-HORABETA/) | **v1.0 Beta** | Primer snapshot completo conservado |
