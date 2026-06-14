@@ -164,9 +164,9 @@ Como el fuente real está perdido pero el comportamiento esperado está
 [reconstructed/1996-06-FINAL-with-mouse/](reconstructed/1996-06-FINAL-with-mouse/)
 está una **re-implementación del propio autor (2026)** que integra
 `MOUSE.PAS` exactamente donde el manual dice que el mouse funcionaba:
-menú principal, diálogos `msgbox`, listas `selectitem` (ítems + flechas
-+ track), formularios `gettext`, grilla 15×6 de `tabla` y visor
-`impcuadres`.
+menú principal, diálogos `msgbox`, listas `selectitem` (ítems, flechas
+y track del scrollbar), formularios `gettext`, grilla 15×6 de `tabla`
+y visor `impcuadres`.
 
 No es decompilación del EXE: es una reconstrucción por fuente perdido
 sobre HORA11 (v1.1), con la misma API, el mismo estilo del autor y
