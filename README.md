@@ -1,10 +1,36 @@
-# Generador de Horarios — Archivo Histórico (1995-1996)
+<div align="center">
 
-> Programa académico en **Turbo Pascal** que genera todas las combinaciones válidas
-> de horarios universitarios sin cruces, dados un conjunto de cursos y secciones.
->
+# Generador de Horarios
+
+### Archivo histórico de un proyecto en Turbo Pascal · 1995-1996
+
+[![Pascal](https://img.shields.io/badge/Pascal-Turbo_6%2F7-E3F171?style=for-the-badge&logo=delphi&logoColor=white&labelColor=662A0A)](src/HORA.PAS)
+[![Platform](https://img.shields.io/badge/Platform-MS--DOS-555?style=for-the-badge&logo=dos&logoColor=white)](docs/COMPILACION.md)
+[![Graphics](https://img.shields.io/badge/Graphics-VGA_640%C3%97480_BGI-1E90FF?style=for-the-badge)](docs/ARQUITECTURA.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+
+[![Era](https://img.shields.io/badge/era-1995--1996-8A2BE2?style=flat-square)](docs/HISTORIA.md)
+[![Status](https://img.shields.io/badge/status-archivo_hist%C3%B3rico-success?style=flat-square)](#)
+[![Lang](https://img.shields.io/badge/docs-espa%C3%B1ol-red?style=flat-square)](#)
+[![Encoding](https://img.shields.io/badge/encoding-CP850-orange?style=flat-square)](docs/FORMATO-DATOS.md)
+[![Code preserved](https://img.shields.io/badge/c%C3%B3digo-byte--id%C3%A9ntico-blue?style=flat-square)](docs/SANEAMIENTO.md)
+[![Sanitized](https://img.shields.io/badge/PII-saneada-green?style=flat-square)](docs/SANEAMIENTO.md)
+
+**Generador combinatorio de horarios universitarios sin cruces**
+*hecho en MS-DOS, recuperado después de ~30 años*
+
+[Historia](docs/HISTORIA.md) ·
+[Arquitectura](docs/ARQUITECTURA.md) ·
+[Formato de datos](docs/FORMATO-DATOS.md) ·
+[Cómo compilar](docs/COMPILACION.md) ·
+[Saneamiento de datos](docs/SANEAMIENTO.md)
+
+</div>
+
+---
+
 > **Autor original:** Oscar Zamora Plasencia · **ZmS Software** © 1995-1996
-> **Plataforma original:** MS-DOS · VGA · Turbo Pascal 6/7 · BGI Graphics
+> **Sitio del autor:** [ozamora.com](https://ozamora.com)
 > **Estado:** Archivo histórico preservado. No se modifica el código fuente.
 
 ---
@@ -155,3 +181,22 @@ horarios/
 - **Soporte de mouse:** vía INT 33h (driver real de DOS) en versiones BETA96 y HORA11
 
 Ver [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) para el detalle completo.
+
+---
+
+<div align="center">
+
+### Sobre el autor
+
+**Oscar Zamora Plasencia**
+[![Web](https://img.shields.io/badge/ozamora.com-000000?style=for-the-badge&logo=safari&logoColor=white)](https://ozamora.com)
+[![GitHub](https://img.shields.io/badge/@oscarzamora-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/oscarzamora)
+
+Ingeniero de Sistemas · Universidad de Lima · Promoción 1995-2000
+
+---
+
+*"Quizás el algoritmo de detección de cruces le sirva a alguien.*
+*Quizás no. Pero ya no se queda en un ZIP guardado en OneDrive."*
+
+</div>
