@@ -1,0 +1,378 @@
+Introducci¢n al Programa
+Requerimientos y Performaces
+Usando el Programa
+Nuevas Adiciones y Cambios
+Nombre del Archivo
+Adicionar Curso
+Modificar/Verificar Curso
+Borrar Curso
+Informaci¢n del Archivo
+Generar Horarios Posibles
+Ver/Imprimir Horarios
+Adicionar Curso a la Base
+Modificar Curso de la Base
+Borrar Curso de la Base
+Cursos en la Base de Datos
+Ayuda
+Acerca de...
+Salir
+Teclas V lidas en Ver/Imprimir
+Por qu‚: la mala impresi¢n
+Por qu‚: se demora al generar
+Por qu‚: se cuelga el programa
+001
+ÿÿÿÿÿEl Generador de Horarios genera horarios posibles, combinando
+todas las posibilidades seg£n la cantidad de cursos que se seleccio-
+nen, tomando todas aquellas secciones que no tengan cruce.
+ÿ
+ÿÿÿÿÿEste programa imprime en pantalla todas las posibilidades
+encontradas, y tambi‚n imprime por impresora los horarios deseados, ya
+sea el horario completo o s¢lo el listado de secciones y cursos que
+cuadren.
+ÿ
+ÿÿÿÿÿLa elaboraci¢n de horarios es sumamente r pida, y existe la posi-
+bilidad de escoger horas que no se deseen considerar durante la
+elaboraci¢n de ‚stos.
+ÿ
+ÿÿÿÿÿNo se ha considerado la existencia de horas de pr cticas califi-
+cadas (como en el curso de Econom¡a de EE.GG.), pero ‚stas pueden ser
+incluidas en las horas que no se deseen tomar durante la elaboraci¢n
+de horarios. Normalmente las horas de pr cticas calificadas se encuen-
+tran en un horario que no ofrece cruces con alg£n otro curso.
+002
+ÿÿÿÿÿEste programa trabaja en un computador personal con procesador
+286 o superior, y requiere de un monitor y tarjeta gr fica VGA st ndar.
+ÿ
+ÿÿÿÿÿMejores performances se obtienen en m quinas con procesadores m s
+r pidos, y preferentemente utilizando un manejador de memoria cach‚
+(tal como SMARTDRV del MS-DOS), ya que el acceso a disco es constante.
+ÿ
+ÿÿÿÿÿEl algoritmo que usa este programa para generar horarios es suma-
+mente r pido. Realiza alrededor de 1000 combinaciones por segundo (en
+una 486DLC de 40 Mhz y con SMARTDRV instalado).
+ÿ
+ÿÿÿÿÿSe pueden ingresar hasta 15 cursos diferentes, y hasta 25 seccio-
+nes por cada curso, soportando en total hasta 375 secciones.
+ÿ
+ÿÿÿÿÿLo m ximo que se ingres¢ al programa como prueba fue un total de
+84 secciones repartidas en 5 cursos; demor¢ 3 minutos 20 segundos en
+pasar por 861,840 combinaciones, y gener¢ 125,030 horarios posibles
+(en una m quina como la descrita en el p rrafo anterior). Se cre¢ un
+archivo temporal de 11.5 Mb.
+ÿ
+ÿÿÿÿÿA mayor cantidad de horarios generados m s espacio en disco ser 
+usado ya que cada horario generado equivale a 96 bytes en disco.
+Adem s, la demora es relativa a la cantidad de horarios generados.
+ÿ
+ÿÿÿÿÿEl programa podr¡a soportar hasta 2,147,483,647 combinaciones.
+003
+ÿÿÿÿÿPrimero debe especificar un nombre de archivo con la opci¢n
+"Nombre del Archivo" del men£. La extensi¢n por defecto es .HOR.
+ÿ
+ÿÿÿÿÿLuego debe ingresar los cursos con la opci¢n "Adicionar Curso"
+del men£; se ingresar  c¢digo de curso, y secci¢n. Si el curso no
+existe en la base de datos (archivo Cursos.dat) se pedir  el nombre
+del curso y el n£mero de horas. Deber  moverse por los campos de
+entrada de texto con la tecla <Tab>.
+ÿ
+ÿÿÿÿÿUna vez que haya ingresado los cursos use la opci¢n "Generar
+Horarios Posibles" para generar horarios. Aparecer  una caja de
+di logo donde se pregunta si se desean marcar horas que no inter-
+vengan en la elaboraci¢n de horarios. Deber  desplazarse por los
+botones con la tecla <Tab>. Luego aparecer  una ventana con todos
+los cursos ingresados al archivo; deber  marcar con la barra espacia-
+dora los cursos que intervendr n en la elaboraci¢n de horarios.
+ÿ
+ÿÿÿÿÿUse la opci¢n "Ver/Imprimir Horarios" para imprimir en pantalla
+(y/o por impresora) los horarios posibles.
+ÿ
+ÿÿÿÿÿPara mayor informaci¢n vea la ayuda relacionada a cada opci¢n
+del men£ general, o presione <F1> en cualquier opci¢n, ya que la
+ayuda es sensible al contexto.
+004
+ÿÿÿÿÿEsta versi¢n maneja los archivos de manera m s eficiente, y
+carga toda la base de datos (archivo CURSOS.DAT) en memoria. Esto
+acelera los procesos, y la generaci¢n de horarios.
+ÿ
+ÿÿÿÿÿSe conserva el formato de archivo de la versi¢n 1.0. Se tiene
+la posibilidad de usar archivos creados por esta versi¢n en la
+versi¢n 1.0 y viceversa.
+ÿ
+ÿÿÿÿÿLa base de datos y los archivos de horarios son ordenados
+alfab‚ticamente ni bien son cargados del disco y/o modificados, lo
+cual ayuda enormemente al usuario al seleccionar cursos. Adem s
+esto acelera el proceso de genereci¢n de horarios.
+ÿ
+ÿÿÿÿÿVisualmente el programa sigue siendo el mismo, pero internamen-
+te se han reestructurado procedimientos, y se han corregido errores
+m¡nimos.
+005
+ÿÿÿÿÿCon esta opci¢n se especifica el nombre del archivo que se va a
+usar para ingresar, modificar y borrar cursos; y de ‚ste depender  la
+generaci¢n de horarios.
+ÿ
+ÿÿÿÿÿLa extensi¢n que se toma por defecto es .HOR.
+ÿ
+ÿÿÿÿÿSi se especifica un nombre de archivo que no existe, se progun-
+tar  si desea crearlo. En caso contrario se reabre el archivo que se
+haya especificado.
+ÿ
+ÿÿÿÿÿSi va a reabrir un archivo existente es indispensable especi-
+ficar el nombre correcto del archivo. Si el archivo no es del tipo
+usado por este programa es muy probable que ‚ste se cuelgue o ter-
+mine de manera anormal.
+ÿ
+ÿÿÿÿÿEs recomendable especificar nombres de archivos sin extensi¢n,
+para que se tome la extensi¢n .HOR por defecto, y as¡ el programa
+trabajar de manera correcta.
+ÿ
+ÿÿÿÿÿSe pueden incluir rutas en la especificaci¢n de archivos. S¢lo
+se soportan hasta 40 caracteres (inclu¡da la extensi¢n .HOR).
+006
+ÿÿÿÿÿCon esta opci¢n se deber n ingresar los cursos y las secciones
+deseadas, almacen ndose autom ticamente en el archivo en uso.
+ÿ
+ÿÿÿÿÿAparecer  una ventana para el ingreso de texto en dos campos.
+El primer campo es referente al c¢digo de curso, y el segundo a la
+secci¢n del curso. Deber  moverse con la tecla <Tab> por los campos.
+ÿ
+ÿÿÿÿÿSi el c¢digo de curso no existe en la base de datos del programa
+se pedir  el nombre del curso y n£mero de horas.
+ÿ
+ÿÿÿÿÿLuego se pedir  el nombre del profesor.
+ÿ
+ÿÿÿÿÿLuego de haber ingresado todos los datos aparecer  una pantalla
+donde se visualizar  un Horario, y se deber  marcar/demarcar con la
+barra espaciadora los bloques (horas) a los cuales pertenece el curso.
+Aceptar  con la tecla <Enter>.
+ÿ
+ÿÿÿÿÿEn la parte inferior de la pantalla estar n visualizadas las
+teclas v lidas, y estar  explicado para qu‚ sirve cada una de ellas.
+007
+ÿÿÿÿÿUse esta opci¢n para modificar alg£n curso ya ingresado previa-
+mente.
+ÿ
+ÿÿÿÿÿAparecer  una ventana donde se visualizar n todos los cursos
+ingresados (con sus respectivas secciones y profesores). Deber 
+moverse con las flechas y deber  presionar <Enter> en el curso a
+modificar.
+ÿ
+ÿÿÿÿÿEl siguiente proceso ser  similar al de la opci¢n "Adicionar
+Curso", donde se proceder  a modificar el nombre del profesor, y/o
+la posici¢n de las horas que pertenecen al curso.
+ÿ
+ÿÿÿÿÿEsta opci¢n podr¡a tambi‚n usarse para verificar los datos del
+curso, y la posici¢n de las horas.
+008
+ÿÿÿÿÿUse esta opci¢n para eliminar alg£n curso ya ingresado previa-
+mente.
+ÿ
+ÿÿÿÿÿAparecer  una ventana donde se visualizar n todos los cursos
+ingresados (con sus respectivas secciones y profesores). Deber 
+moverse con las flechas y deber  presionar <Enter> en el curso a
+eliminar.
+ÿ
+ÿÿÿÿÿLuego deber  confirmar la eliminaci¢n del curso.
+009
+ÿÿÿÿÿUse esta opci¢n para ver los cursos y las secciones ingresadas
+al archivo.
+ÿ
+ÿÿÿÿÿEl reporte se dar  en la ventana de Reportes, y se visualizar n
+los c¢digos de curso, los nombres de los cursos, las secciones, los
+profesores, y el n£mero de horas de cada curso.
+ÿ
+ÿÿÿÿÿSi desea verificar la posici¢n de las horas de alg£n curso, use
+la opci¢n "Modificar Curso" del men£ (a manera de verificaci¢n).
+010
+ÿÿÿÿÿUse esta opci¢n para generar horarios posibles.
+ÿ
+ÿÿÿÿÿAparecer  una ventana donde se visualizar n todos los cursos
+ingresados (con sus respectivas secciones y profesores). Deber 
+moverse con las flechas y deber  marcar/demarcar con la barra espa-
+ciadora los cursos que desee que intervengan en la elaboraci¢n de
+horarios. Deber  presionar <Enter> para aceptar los cursos seleccio-
+nados.
+ÿ
+ÿÿÿÿÿLuego aparecer  una ventana, donde se preguntar  si desea marcar
+horas que no desee que intervengan durante la elaboraci¢n de los hora-
+rios (por ejemplo si no desea tener clases de 20:00 a 22:00 o no tener
+clases los s bados). Deber  moverse por los botones con <Tab>.
+ÿ
+ÿÿÿÿÿLuego se reportar  el resultado detalladamente en la ventana de
+Reportes.
+ÿ
+ÿÿÿÿÿUse la opci¢n "Ver/Imprimir Horarios" para ver y/o imprimir los
+horarios generados.
+011
+ÿÿÿÿÿUse esta opci¢n para ver los horarios generados e imprimir los
+horarios deseados.
+ÿ
+ÿÿÿÿÿSi no ha usado la opci¢n "Generar Horarios" antes de usar esta
+opci¢n, se ejecutar  autom ticamente antes de proceder con la visua-
+lizaci¢n y/o impresi¢n de horarios.
+ÿ
+ÿÿÿÿÿEn la parte inferior de la pantalla estar n visualizadas las
+teclas v lidas, y algunas estar n explicadas para qu‚ sirven. Se
+visualizar  adem s en que horario est  localizado, y el total de
+horarios generados. Podr  ir a cualquier n£mero de horario ingresado
+presionando la tecla <F5>.
+ÿ
+ÿÿÿÿÿCon <Enter> se imprimir  el horario completo, y con la combina-
+ci¢n <Ctrl>+<Enter> se imprimir n solo los cursos, las secciones y
+los profesores del horario deseado. Las impresiones se realizan en
+formato nativo, es decir, puede seleccionar en su impresora el FONT
+deseado as¡ como la opci¢n de condensado.
+ÿ
+ÿÿÿÿÿEn la selecci¢n de t¢pico de la ventana de ayuda seleccione la
+opci¢n "Teclas v lidas en Ver/Imprimir" para una explicaci¢n deta-
+llada de las teclas b sicas y complementarias v lidas.
+012
+ÿÿÿÿÿUse esta opci¢n si desea adicionar alg£n curso a la base de
+datos del programa (archivo Cursos.dat).
+ÿ
+ÿÿÿÿÿEsta opci¢n se ejecutar  autom ticamente cada vez que ingrese
+alg£n c¢digo de curso que no exista en la base de datos del programa
+(usando la opci¢n "Adicionar Curso" del men£).
+ÿ
+ÿÿÿÿÿSe pedir  ingresar el c¢digo de curso, nombre del curso y n£mero
+de horas que tiene el curso.
+013
+ÿÿÿÿÿUse esta opci¢n para modificar alg£n curso existente en la base
+de datos del programa.
+ÿ
+ÿÿÿÿÿAparecer  una ventana donde se visualizar n todos los cursos
+existentes en la base de datos. Deber  moverse con las flechas y
+deber  presionar <Enter> en el curso a modificar.
+ÿ
+ÿÿÿÿÿLuego podr  modificar el nombre del curso, y/o el n£mero de
+horas del curso.
+014
+ÿÿÿÿÿUse esta opci¢n para eliminar alg£n curso existente en la base
+de datos del programa.
+ÿ
+ÿÿÿÿÿAparecer  una ventana donde se visualizar n todos los cursos
+existentes en la base de datos. Deber  moverse con las flechas y
+deber  presionar <Enter> en el curso a eliminar.
+ÿ
+ÿÿÿÿÿLuego deber  confirmar la eliminaci¢n del curso de la base de
+datos.
+ÿ
+ÿÿÿÿÿSi se usa alg£n archivo de horario que contenga informaci¢n
+de un c¢digo de curso que no exista en la base de datos, no se po-
+dr n generarse horarios. Deber  ingresar los datos del curso a la
+base de datos del programa con la opci¢n "Adicionar Curso a la
+Base" del men£.
+015
+ÿÿÿÿÿUse esta opci¢n para ver los cursos y las secciones existentes
+en la base de datos del programa.
+ÿ
+ÿÿÿÿÿEl reporte se dar  en la ventana de Reportes, y se visualizar n
+los c¢digos de curso, los nombres de los cursos, y el n£mero de
+horas de cada curso.
+016
+ÿÿÿÿÿEsta opci¢n es la que muestra los t¢picos de ayuda disponibles.
+Debe moverse con las flechas y seleccionar con la tecla <Enter> el
+t¢pico deseado.
+017
+ÿÿÿÿÿEsta opci¢n muestra en una ventana la versi¢n del programa, a¤o
+de programaci¢n/lanzamiento del programa, y el nombre del programador.
+018
+ÿÿÿÿÿUse esta opci¢n para salir del programa.
+ÿ
+ÿÿÿÿÿAparecer  una ventana preguntando si desea salir del programa.
+Deber  moverse por los botones con la tecla <Tab>, y para aceptar use
+la tecla <Enter> o barra espaciadora.
+019
+ÿÿÿÿÿTeclas v lidas (b sicas y complementarias) que se pueden usar:
+ÿ
+ÿÿÿÿÿÿÿÿÿÿÿÿ<Pg Up>  Retrocede un horario.
+ÿÿÿÿÿÿÿÿÿÿÿÿ<Pg Dn>  Avanza un horario.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿ<Home>  Va al primer horario.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<End>  Va al £ltimo horario.
+ÿ
+ÿÿÿÿÿÿÿÿÿÿÿÿ<Enter>  Imprime el horario (y lista de secciones).
+ÿÿÿÿÿ<Ctrl>+<Enter>  Imprime s¢lo cursos, secciones y profesores.
+ÿ
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<F1>  Ayuda.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<F2>  Grabar el horario actual en un archivo.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<F3>  Cargar horario(s) de un archivo.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<F4>  Cerrar archivo y visualizar horarios previos.
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<F5>  Ir al n£mero de Horario . . .
+ÿ
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿ<Esc>  Salir.
+ÿ
+ÿÿÿÿÿS¢lo se pueden almacenar horarios generados por la misma lista de
+cursos seleccionados en un archivo. Al regenerar horarios con otra
+lista de cursos seleccionados s¢lo podr  almacenarlos en otro archivo.
+No hay l¡mite de cantidad de horarios al almacenar en un archivo.
+ÿ
+ÿÿÿÿÿS¢lo podr  cargar horarios de un archivo estando en esta ventana.
+Para visualizar los horarios generados anteriormente y cerrar el
+archivo de horario(s) cargado tendr  que presionar <F4>.
+020
+ÿÿÿÿÿEn esta versi¢n las impresiones se realizan en una menor cantidad
+de l¡neas, siendo ‚stas m s simples pero m s r pidas para imprimir.
+ÿ
+ÿÿÿÿÿSe conserva el uso de caracteres especiales (l¡neas) para la
+impresi¢n de horarios. Si en vez de imprimirse l¡neas se imprimen
+caracteres raros u otros que no sean l¡neas, no significa que el pro-
+grama est  mandando las impresiones de manera err¢nea.
+ÿ
+ÿÿÿÿÿLo que sucede es que la impresora est  mal configurada, y para
+configurarla necesita del manual de la misma. Puede ser que su impre-
+sora tenga unos dip switches (palanquitas) en alguna parte, y moviendo
+un conjunto de ellos de manera correcta solucionen el problema.
+ÿ
+ÿÿÿÿÿDebe de buscar en el manual de su impresora la secci¢n sobre la
+configuraci¢n de los dip switches, o en todo caso, si su impresora no
+tiene estos dip switches, encontrar la secci¢n que especifique sobre
+la configuraci¢n de caracteres internacionales.
+ÿ
+ÿÿÿÿÿDebe configurar los caracteres internacionales en algo parecido
+a: st ndard, 850, 437, USA, o alg£n equivalente.
+021
+ÿÿÿÿÿEste programa incorpora un algoritmo sumamente r pido para la
+generaci¢n de horarios, y normalmente los genera en un lapso de pocos
+segundos o cent‚simas de segundo.
+ÿ
+ÿÿÿÿÿSi el programa se demora al generar horarios es porque se han
+seleccionado muchos cursos y/o muchas secciones. Entonces se anali-
+zan miles de combinaciones para generar horarios. Cabe resaltar que
+en cada combinaci¢n analizada el programa chequea la existencia de
+cruces.
+ÿ
+ÿÿÿÿÿEl n£mero de combinaciones se da seg£n la siguiente funci¢n:
+ÿ
+ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿC = CR1 * CR2 * CR3 * ... * CRN
+ÿ
+ÿÿÿÿÿSiendo C el n£mero de combinaciones y CR1, CR2, ... , CRN el
+total de secciones por cada curso. Por ello, si se seleccionan 5
+cursos con 10 secciones cada uno se estar¡an analizando un total de
+100.000 combinaciones.
+ÿ
+ÿÿÿÿÿSi ha seleccionado una buena cantidad de secciones solo le queda
+esperar a que el programa pase por todas las combinaciones.
+022
+ÿÿÿÿÿEste programa contempla algunos errores que se puedan detectar,
+pero para evitar la codificaci¢n de muchas l¡neas de programaci¢n no
+se han inclu¡do todos los errores posibles.
+ÿ
+ÿÿÿÿÿEs probable que el programa se cuelgue por algun error de ‚stos:
+ÿ
+ÿÿÿÿÿ- El disco est  protegido contra escritura.
+ÿ
+ÿÿÿÿÿ- No hay espacio suficiente en disco para crear o actualizar un
+ÿÿÿÿÿÿÿarchivo, o para crear o actualizar el archivo temporal que se
+ÿÿÿÿÿÿÿusa durante la generaci¢n de horarios.
+ÿ
+ÿÿÿÿÿ- Se ha tratado de cargar un archivo que no tiene formato para
+ÿÿÿÿÿÿÿusarse con este programa.
+ÿ
+ÿÿÿÿÿ- Se han tratado de generar horarios con m s de 15 cursos dife-
+ÿÿÿÿÿÿÿrentes, y/o con m s de 25 secciones en alg£n curso.
+ÿ
+ÿÿÿÿÿ- La base de datos principal (archivo Cursos.dat) contiene m s
+ÿÿÿÿÿÿÿde 375 cursos diferentes.
+ÿ
+ÿÿÿÿÿ- Se ha retirado el disco de la unidad antes de que se cierre
+ÿÿÿÿÿÿÿel programa.

@@ -1,0 +1,24 @@
+# Por defecto: detectar texto y forzar CRLF (proyecto DOS de 1995-1996).
+* text=auto eol=crlf
+
+# === Fuentes Pascal ===
+# Texto en CP850 (DOS Latin) — preservar CRLF, no convertir a UTF-8.
+*.PAS  text eol=crlf
+*.pas  text eol=crlf
+
+# === Archivo de ayuda del programa ===
+# Texto plano con códigos de tópico (001, 002…). CP850.
+*.HLP  text eol=crlf
+*.hlp  text eol=crlf
+
+# === Datos binarios (typed files de Pascal) ===
+# CURSOS.DAT, CUR.DAT  = file of regcur     (22 bytes/registro)
+# *.HOR                = file of reghora    (69 bytes/registro)
+# gdh.tmp              = file of regcuadre  (96 bytes/registro)
+*.DAT  binary
+*.dat  binary
+*.HOR  binary
+*.hor  binary
+
+# Documentación moderna (markdown) ya está en UTF-8.
+*.md   text eol=lf

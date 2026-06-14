@@ -1,0 +1,62 @@
+# Inspecciones / restauraciones temporales (usadas durante import inicial)
+_inspect/
+_restore/
+
+# === Outputs de compilación (Turbo Pascal / Free Pascal) ===
+*.exe
+*.EXE
+*.tpu
+*.TPU
+*.tpp
+*.TPP
+*.tpw
+*.TPW
+*.ppu
+*.PPU
+*.o
+*.O
+*.obj
+*.OBJ
+*.dcu
+*.DCU
+*.res
+*.RES
+
+# === Backups del IDE Turbo Pascal ===
+# Los originales fueron removidos del repo durante la limpieza para publicación.
+# Si alguien recompila el código con TP IDE, los nuevos .BAK no deben commitearse.
+*.bak
+*.BAK
+
+# === Temporal generado por el propio programa al combinar horarios ===
+gdh.tmp
+GDH.TMP
+
+# === Secretos / credenciales (defensa en profundidad) ===
+# Este repo es código histórico y no debería tener nada de esto, pero por
+# seguridad ante cualquier accidente futuro:
+.env
+.env.*
+*.env
+secrets.*
+credentials.*
+*.key
+*.pem
+*.p12
+*.pfx
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# === Editor / sistema ===
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# === Logs ===
+*.log
+logs/

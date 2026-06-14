@@ -1,0 +1,34 @@
+{
+  "//": "Encoding workspace default = UTF-8 (para docs/*.md y .gitignore/.gitattributes).",
+  "files.encoding": "utf8",
+  "files.eol": "\r\n",
+
+  "files.associations": {
+    "*.PAS": "pascal",
+    "*.pas": "pascal",
+    "*.HLP": "plaintext",
+    "*.hlp": "plaintext",
+    "CAMBIOS*.TXT": "plaintext",
+    "CAMBIOS*.txt": "plaintext"
+  },
+
+  "//pascal": "Forzar CP850 (DOS Latin) en archivos .PAS que mapean a lenguaje pascal.",
+  "[pascal]": {
+    "files.encoding": "cp850",
+    "files.eol": "\r\n",
+    "editor.tabSize": 5,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false
+  },
+
+  "files.exclude": {
+    "_inspect": true
+  },
+
+  "//search": "No buscar dentro de binarios ni de la carpeta temporal de inspección.",
+  "search.exclude": {
+    "_inspect/**": true,
+    "**/*.HOR": true,
+    "**/*.DAT": true
+  }
+}

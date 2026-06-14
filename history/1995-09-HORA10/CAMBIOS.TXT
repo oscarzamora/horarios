@@ -1,0 +1,100 @@
+Archivo CAMBIOS.TXT del Generador de Horarios versi¢n 1.0 (no Beta)
+-------------------------------------------------------------------
+
+Cambios con respecto a la versi¢n 1.0 Beta.
+
+Corrrecciones:
+-------------
+
+- Cuando se trataban de generar horarios con un archivo vaci¢, se creaba
+  un archivo temporal de tama¤o ilimitado, saliendo al DOS con un mensaje
+  de error por falta de memoria. Ha sido corregido.
+
+- Cuando se mandaba a imprimir y no exist¡a impresora conectada aparec¡a
+  un mensaje de error, y no hab¡a manera de cancelar. Ha sido corregido.
+
+- Cuando se borraba un curso, y se ped¡a visualizar la informaci¢n del
+  horario, se mostraba una l¡nea en blanco en el lugar donde habr¡a
+  estado la informaci¢n de ese curso. Ha sido corregido.
+
+- Cuando se generaban horarios con una o dos secciones existentes
+  (lo cual no era normal) se generaba una combinaci¢n dem s que conten¡a
+  informaci¢n no v lida. Ha sido corregido.
+
+- Cuando se borraban todos los cursos de la base de datos, o en el archivo
+  en uso, y se ped¡a informaci¢n de los cursos existentes, ya sea en la
+  base de datos, o en el archivo en uso, ‚sta la daba en blanco, y no 
+  se mandaba el mensaje que el archivo no ten¡a datos. Ha sido corregido.
+
+- Cuando se defin¡an las horas de alg£n curso, y se aceptaban con bloques
+  equivocados, no se pod¡a cancelar (existiendo esta opci¢n). Ha sido
+  corregido.
+
+Modificaciones:
+--------------
+
+- El Men£ General ha sufrido los siguientes cambios:
+
+  1.- Las opciones: "Crear Horario" y "Cargar Horario de Disco" han sido
+      reemplazados por la opci¢n "Nombre del Archivo". Esta reconoce si
+      el archivo es nuevo o antiguo y crea o reabre seg£n el caso.
+      Tambi‚n, se toma como extensi¢n por defecto .HOR. Ya no se pueden
+      ingresar nombres de archivos con espacios en blanco.
+
+  2.- La opci¢n "Cerrar Horario" ha sido eliminada, ya que la grabaci¢n
+      del archivo es autom tica, y ‚ste se cierra cuando se crea o se
+      reabre un nuevo archivo, o cuando se sale del programa.
+
+  3.- La opci¢n "Adicionar/Editar/Ver Secci¢n" ha sido dividida en
+      "Adicionar Curso y Modificar Curso".
+
+  4.- La opci¢n "Adicionar/Editar/Ver" Curso ha sido dividida en "Adicionar
+      Curso a la Base" y "Modificar Curso de la Base".
+
+  5.- La opci¢n "Informaci¢n del Horario" ha sido renombrada con
+      "Informaci¢n del Archivo".
+
+  6.- La opci¢n "Informaci¢n de los Cursos" ha sido renombrada con
+      "Cursos en la Base de Datos".
+
+- Cuando se generaban horarios, se creaba un archivo temporal con registros
+  de 176 bytes por horario generado. Ha sido reducido a 96 bytes por
+  horario generado.
+
+- Antes se pod¡an generar hasta 32,767 horarios. Ahora se podr¡an llegar
+  a los 2,147,483,647 horarios.
+
+Adiciones:
+---------
+
+- Se ha implementado una ventana de selecci¢n que aparece en los siguientes
+  casos:
+
+          (i) Para Generar horarios con los cursos que se deseen.
+         (ii) Modificaci¢n de Curso ya sea en el archivo en uso o en la
+              base de datos.
+        (iii) Eliminaci¢n de Curso ya sea en el archivo en uso o en la
+              base de datos.
+         (iv) Uso de la Ayuda del Programa.
+
+- S¢lo se pod¡an imprimir horarios completos. Ahora existe una opci¢n que
+  permite imprimir s¢lo la lista de secciones con sus cursos.
+
+- Ahora se pueden marcar horas que no se desean en los horarios a generarse.
+
+- Ahora se puede ir a un n£mero de Horario deseado con la tecla <F5>.
+
+- El reporte de Horarios Posibles se imprime m s detalladamente en la
+  ventana de Informaci¢n.
+
+- La ayuda es m s amplia, y se escoje el t¢pico deseado.
+
+- Se ha implementado un cierre de ventana tipo persianas que se ejecuta
+  al finalizar.
+
+Eliminaciones:
+-------------
+
+- Las ventanas ten¡an adornos (como bot¢n close y esquinas definidas al
+  estilo Windows). Han sido eliminados.
+

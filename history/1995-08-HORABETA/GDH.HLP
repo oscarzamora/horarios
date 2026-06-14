@@ -1,0 +1,28 @@
+     Esta versi¢n 1.0 Beta se encuentra en prueba. Podr¡a darse el caso
+que se genere alg£n error durante la ejecuci¢n de este Programa.
+
+     Este programa genera horarios, combinando todas las posibilidades
+seg£n la cantidad de cursos que se ingresen, tomando aquellos que no
+tengan cruces.
+
+     Primero debe crear un nuevo archivo de Horario o Cargar uno ya
+existente. Luego debe ingresar las secciones y los cursos, uno por uno
+(con la opci¢n Adicionar/Editar/Ver Secci¢n), movi‚ndose con la tecla
+<Tab> de campo en campo, y aceptando con la tecla <Enter>. Si el c¢digo
+de curso ingresado no existe en la base de datos se le pedir  que
+ingrese el nombre del curso y la cantidad de horas. Al final se
+presentar  una tabla donde se seleccionar n las horas pertenecientes
+al curso y secci¢n ingresados.
+
+     Seleccione la opci¢n de Generar Horarios para generar las posibi-
+lidades, y use la opci¢n Ver/Imprimir Horarios para ver y/o imprimir
+los horarios generados.
+
+     La informaci¢n del archivo de horario que usted use se grabar 
+autom ticamente cada vez que ingrese o borre algun curso. La opci¢n
+de Cerrar Horario sirve para grabar y cerrar el archivo en uso, no
+siendo indispensable su uso. Cada vez que cargue otro archivo o salga
+del programa el archivo actual se grabar  de manera autom tica.
+
+     La versi¢n no Beta de pr¢ximo lanzamiento tendr  una ayuda m s
+detallada, y corregir  errores que pueda tener esta versi¢n Beta.
