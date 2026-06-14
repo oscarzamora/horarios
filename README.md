@@ -192,7 +192,7 @@ Ver [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) para el detalle completo.
 [![Web](https://img.shields.io/badge/ozamora.com-000000?style=for-the-badge&logo=safari&logoColor=white)](https://ozamora.com)
 [![GitHub](https://img.shields.io/badge/@oscarzamora-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/oscarzamora)
 
-Ingeniero de Sistemas · Universidad de Lima · Promoción 1995-2000
+Ingeniero de Sistemas · Universidad de Lima · Promoción 1998
 
 ---
 
