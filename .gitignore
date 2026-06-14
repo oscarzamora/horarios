@@ -3,8 +3,11 @@ _inspect/
 _restore/
 
 # === Outputs de compilación (Turbo Pascal / Free Pascal) ===
+# NOTA: el EXE preservado en release/1996-06-FINAL/ es la versión histórica
+# distribuida (1-jun-1996); ese se commitea explicitamente con git add -f.
 *.exe
 *.EXE
+!release/1996-06-FINAL/HORARIOS.EXE
 *.tpu
 *.TPU
 *.tpp

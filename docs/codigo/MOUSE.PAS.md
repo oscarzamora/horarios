@@ -82,7 +82,7 @@ Es la API estándar de Microsoft Mouse Driver (compatible con
 CuteMouse, Logitech, etc.). Documentada en *Microsoft Mouse Programmer's
 Reference* (1991).
 
-## Por qué no se usa en el programa
+## Por qué no se usa en el `HORA.PAS` preservado
 
 El menú de [src/HORA.PAS](../../src/HORA.PAS) es **completamente por teclado**:
 flechas, Enter, Esc, Tab, F1, F5. Buscando en el código:
@@ -93,11 +93,16 @@ grep -i 'mouse\|uhora' src/HORA.PAS
 
 `HORA.PAS` declara `uses crt, graph, uhora, uhora2;` — **no incluye `mouse`**.
 
-Probable explicación: el autor preparó la unidad para una futura versión
-con soporte de ratón pero no llegó a implementarla. La presencia del
-catálogo completo de cursores sugiere que la integración estaba planeada
-para un nivel UI más rico (drag & drop sobre la grilla de horarios,
-selección con click, etc.).
+Pero el mouse **sí se llegó a integrar** en la versión final del programa
+(1 de junio de 1996), preservada como EXE compilado en
+[release/1996-06-FINAL/](../../release/1996-06-FINAL/). El código fuente
+de esa integración nunca se archivó — lo que queda es:
+
+- HORA11 (abr-1996, este repo en `src/`): unidad presente pero sin enlazar.
+- v1.1 FINAL (jun-1996, en `release/`): EXE compilado con `INT 33h` (`CD 33`)
+  enlazado y manual con tópico "Usando el Mouse".
+
+Esta unidad es exactamente la que fue enlazada al EXE final.
 
 ## Limitaciones
 

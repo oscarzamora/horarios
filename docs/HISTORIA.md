@@ -11,8 +11,9 @@ encabezados de los archivos `.PAS` y en el `CAMBIOS.TXT` original.
 | **02-ago-1995** | _(no preservado)_ | — | Aparece `UHORA.PAS` v1 (BGI: ventanas, botones, msgbox) |
 | **13-14 ago 1995** | [history/1995-08-HORABETA/](../history/1995-08-HORABETA/) | **v1.0 Beta** | Primer snapshot completo conservado |
 | **10-sep-1995** | [history/1995-09-HORA10/](../history/1995-09-HORA10/) | **v1.0** estable | Incluye `CAMBIOS.TXT` con changelog detallado vs. Beta |
-| **24-feb-1996** | [history/1996-02-BETA96/](../history/1996-02-BETA96/) | **Beta 96** | Aparece `HORA.PAS` (nuevo main) y `MOUSE.PAS` (INT 33h) |
-| **16-abr-1996** | [src/](../src/) (HORA11) | **v1.1** | Versión final preservada. `HORA.PAS` evolucionado, `GDH.HLP` ampliado a 21 tópicos |
+| **24-feb-1996** | [history/1996-02-BETA96/](../history/1996-02-BETA96/) | **Beta 96** | Aparece `HORA.PAS` (nuevo main) y `MOUSE.PAS` (INT 33h, sin enlazar) |
+| **16-abr-1996** | [src/](../src/) (HORA11) | **v1.1 pre-final** | Último source preservado. Sin mouse aún integrado. |
+| **01-jun-1996** | [release/1996-06-FINAL/](../release/1996-06-FINAL/) | **v1.1 FINAL** | **EXE final con mouse integrado** — source perdido |
 
 ## Antes de los snapshots conservados
 
@@ -147,13 +148,35 @@ El encabezado de [src/HORA.PAS](../src/HORA.PAS) declara:
 {                            Copyright (C) ZmS Software, 1995 - 1996 }
 ```
 
-### Por qué `HORA11` es la versión principal
+### Por qué `HORA11` es el último source preservado
 
-- Es el snapshot más reciente (abr-1996).
+- Es el snapshot más reciente con código fuente disponible.
 - `HORA.PAS` (47 KB) está más completo que cualquier `HORARIO.PAS` anterior.
 - `GDH.HLP` documenta 21 tópicos vs. ~14 en versiones previas.
-- Incluye soporte de mouse listo.
-- Es el último estado conocido del proyecto.
+- Incluye la unidad [src/MOUSE.PAS](../src/MOUSE.PAS) preparada para
+  integrarse, aunque aún no enlazada al programa principal.
+
+### Última versión efectiva: 1-jun-1996 (release con mouse, source perdido)
+
+El proyecto **sí llegó a integrar el mouse**. El release final está
+preservado como EXE compilado en [release/1996-06-FINAL/](../release/1996-06-FINAL/),
+con fecha **1 de junio de 1996** (6 semanas posterior a HORA11).
+
+Evidencia técnica:
+
+| Verificación | Resultado |
+|---|---|
+| Opcode `INT 33h` (`CD 33`) en `HORARIOS.EXE` | ✅ presente — llama al driver de mouse del BIOS |
+| Tópico "Usando el Mouse" en `GDH.HLP` (18 220 bytes) | ✅ presente |
+| Menú renombrado: "Adicionar Curso" → "Adicionar Sección" | ✅ (más correcto: lo que se adiciona son secciones) |
+| 24 tópicos de ayuda vs 21 del HORA11 anterior | +14 % de contenido |
+
+El **código fuente Pascal de esta versión no se conservó**. Solo
+sobreviven el ejecutable, el manual y los drivers BGI necesarios para
+ejecutarlo. Es el roadmap completado pero no archivado.
+
+Ver [release/1996-06-FINAL/README.md](../release/1996-06-FINAL/README.md)
+para el detalle.
 
 ## Sobre los archivos `.HOR` incluidos
 

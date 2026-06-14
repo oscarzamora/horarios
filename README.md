@@ -107,6 +107,37 @@ Hoy el mismo cálculo correría en milisegundos en cualquier laptop, pero la
 de colisión, early-exit, streaming. Es básicamente lo que un solver moderno
 haría con las mismas restricciones de memoria embebida.
 
+## El mouse: cazado en la versión final
+
+Durante mucho tiempo creí recordar que la última versión del programa	enía soporte completo de mouse. Cuando revisamos el código fuente
+preservado en [src/](src/) (HORA11, 16-abr-1996), nada cuadraba:
+
+- `HORA.PAS` declara `uses crt, graph, uhora, uhora2;` — sin `mouse`.
+- 11 `readkey` y 47 códigos de tecla literales — todo por teclado.
+- El manual de HORA11 no menciona el ratón en ningún tópico.
+
+La unidad [src/MOUSE.PAS](src/MOUSE.PAS) (driver INT 33h del BIOS con 10
+cursores gráficos) estaba presente desde feb-1996, pero **sin enlazar**.
+
+Resulta que **sí terminé de integrarla**. La evidencia apareció en un
+backup de OneDrive bajo `_Archived_/DOS Applications/Horarios/`: el
+**ejecutable compilado del 1 de junio de 1996** — 6 semanas posterior
+al source preservado — con:
+
+- ✅ Opcode `INT 33h` (`CD 33`) presente en bytecode
+- ✅ Tópico "Usando el Mouse" en el manual `GDH.HLP` actualizado
+- ✅ 7 menciones de "mouse", 14 de "click", 8 de "botón" en el manual
+- ✅ Menú renombrado: "Adicionar Curso" → "Adicionar Sección" (más correcto)
+- ✅ 24 tópicos de ayuda vs 21 del HORA11 anterior
+
+**El código fuente de esa versión final nunca se conservó.** Solo
+sobrevivió el EXE compilado. Ahora está en
+[release/1996-06-FINAL/](release/1996-06-FINAL/) junto al manual y los
+drivers BGI necesarios para ejecutarlo en DOSBox.
+
+Ver [release/1996-06-FINAL/README.md](release/1996-06-FINAL/README.md)
+para el detalle.
+
 ---
 
 ## ¿Qué hay aquí?
@@ -117,7 +148,8 @@ ejecutarlo en DOS.
 
 | Carpeta | Contenido | Propósito |
 |---|---|---|
-| [src/](src/) | Versión **HORA11** (abril 1996, v1.1) | Versión final / principal |
+| [release/1996-06-FINAL/](release/1996-06-FINAL/) | **EXE final** v1.1 con mouse (jun 1996) | Última versión distribuida — fuente perdida |
+| [src/](src/) | Versión **HORA11** (abril 1996, v1.1 pre-final) | Último source preservado, sin mouse integrado |
 | [history/1995-08-HORABETA/](history/1995-08-HORABETA/) | v1.0 Beta — agosto 1995 | Primera versión conservada |
 | [history/1995-09-HORA10/](history/1995-09-HORA10/) | v1.0 estable — septiembre 1995 | Incluye `CAMBIOS.TXT` original |
 | [history/1996-02-BETA96/](history/1996-02-BETA96/) | Beta 96 — febrero 1996 | Introduce `HORA.PAS` y `MOUSE.PAS` |
@@ -137,7 +169,9 @@ ejecutarlo en DOS.
 
 ```
 horarios/
-├── src/                            ★ HORA11 — versión principal (abr 1996)
+├── release/
+│   └── 1996-06-FINAL/               ⭐ EXE final con mouse (1 jun 1996) — fuente perdida
+├── src/                            ★ HORA11 — último source preservado (16 abr 1996)
 ├── history/
 │   ├── 1995-08-HORABETA/           v1.0 Beta
 │   ├── 1995-09-HORA10/             v1.0 estable
@@ -147,11 +181,13 @@ horarios/
 │   ├── ARQUITECTURA.md
 │   ├── FORMATO-DATOS.md
 │   ├── COMPILACION.md
+│   ├── SANEAMIENTO.md
 │   ├── CAMBIOS-ORIGINALES.txt
 │   └── codigo/                     Docs por unidad: HORA, HORARIO, UHORA, UHORA2, MOUSE
+├── scripts/sanitize-data.ps1
 ├── .vscode/                        Asocia .PAS a Pascal con encoding CP850
-├── .gitignore                      Ignora outputs de compilación (.EXE, .TPU, .BAK, gdh.tmp…)
-└── .gitattributes                  .PAS/.HLP = texto CRLF · .HOR/.DAT = binario
+├── .gitignore
+└── .gitattributes
 ```
 
 ## Convenciones de preservación
@@ -178,9 +214,32 @@ horarios/
   [sección de eficiencia](#sobre-la-eficiencia-del-algoritmo-corroboración-técnica))
 - **Salidas:** visualización en pantalla + impresión a `LPT1` (horario completo o lista de secciones)
 - **Persistencia:** typed files binarios (`file of <record>`), formato propietario
-- **Soporte de mouse:** vía INT 33h (driver real de DOS) en versiones BETA96 y HORA11
+- **Entrada:** 100% por teclado (flechas, Tab, Enter, Esc, F1, F5)
 
 Ver [docs/ARQUITECTURA.md](docs/ARQUITECTURA.md) para el detalle completo.
+
+## El mouse que no llegué a integrar
+
+En febrero de 1996 (BETA96) agregué al proyecto la unidad
+[src/MOUSE.PAS](src/MOUSE.PAS): un driver completo que habla con el ratón
+vía **INT 33h** del BIOS, con 10 cursores gráficos personalizados
+(flecha, reloj de arena, mano apuntando, check, etc.). El objetivo era
+claro: la siguiente versión del programa iba a soportar mouse — click
+sobre la grilla 15×6 para marcar horas, drag para mover secciones,
+botones presionables con el cursor.
+
+La unidad nunca se llegó a enlazar. Verificable hoy:
+
+- [src/HORA.PAS](src/HORA.PAS) declara `uses crt, graph, uhora, uhora2;`
+  — sin `mouse`.
+- 11 llamadas a `readkey` y 47 códigos de tecla literales en el código:
+  toda la interacción es por teclado.
+- El manual [src/GDH.HLP](src/GDH.HLP) (21 tópicos) no menciona el ratón
+  en ninguna parte.
+
+Quedó como el roadmap nunca ejecutado de la v1.2 que no existió.
+Ver [docs/codigo/MOUSE.PAS.md](docs/codigo/MOUSE.PAS.md) para el detalle
+de la unidad.
 
 ---
 

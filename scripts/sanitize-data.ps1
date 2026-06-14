@@ -126,7 +126,8 @@ $datFiles = @(
     "history\1995-08-HORABETA\CURSOS.DAT",
     "history\1995-09-HORA10\CURSOS.DAT",
     "history\1996-02-BETA96\CURSOS.DAT",
-    "history\1996-02-BETA96\CUR.DAT"
+    "history\1996-02-BETA96\CUR.DAT",
+    "release\1996-06-FINAL\CURSOS.DAT"
 )
 
 Write-Host "`n=== Saneando .DAT (reemplaza nombre de cursos) ===" -ForegroundColor Cyan
@@ -143,7 +144,8 @@ $horFiles = @(
     "src\PRUEBA2.HOR",
     "history\1995-09-HORA10\GEN.HOR",
     "history\1996-02-BETA96\GEN.HOR",
-    "history\1996-02-BETA96\PRUEBA.HOR",
+    "history\1996-02-BETA96\PRUEBA.HOR",,
+    "release\1996-06-FINAL\GEN.HOR"
     "history\1996-02-BETA96\PRUEBA2.HOR"
 )
 
